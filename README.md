@@ -7,7 +7,7 @@ This is the **frontend** of the CUPCP Exam Registration system, built using **Re
 ## 📁 Frontend Project Structure
 
 ```text
-CUPCProject-Frontend/
+cupcp_frontend/
 ├── dist/
 ├── node_modules/
 ├── src/
