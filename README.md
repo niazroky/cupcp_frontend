@@ -36,3 +36,54 @@ CUPCProject-Frontend/
 ├── README.md
 ├── requirements.txt.txt
 └── vite.config.js
+```
+
+---
+
+## 🚀 How to Run the Project (Frontend)
+
+Follow the steps below to run this frontend locally:
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/niazroky/cupcp_frontend.git
+cd cupcp_frontend
+```
+
+2. **Install dependencies**
+
+Make sure you have Node.js and npm installed, then run:
+
+```bash
+npm install
+```
+
+3. **Start the development server**
+
+```bash
+npm run dev
+```
+
+4. **Access the app**
+
+Once the development server starts, open your browser and go to:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- Vite
+- React Router DOM
+- Tailwind CSS (if used)
+- Context API for state management
+- JWT for authentication with backend
+
+---
+
+Make sure your backend is running on the expected URL (`http://localhost:8000` by default), and CORS is properly set up to allow API requests from the frontend.
