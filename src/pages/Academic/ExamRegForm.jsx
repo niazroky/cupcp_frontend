@@ -30,7 +30,7 @@ export default function ExamRegistrationPage() {
     }
 
     axios
-      .get("http://127.0.0.1:8000/api/student-manager/exam-registration/my/", {
+      .get("http://13.202.55.139:8000/api/student-manager/exam-registration/my/", {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(({ data }) => {
@@ -96,13 +96,13 @@ export default function ExamRegistrationPage() {
       let res;
       if (registered) {
         res = await axios.put(
-          "http://127.0.0.1:8000/api/student-manager/exam-registration/my/",
+          "http://13.202.55.139:8000/api/student-manager/exam-registration/my/",
           payload,
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         res = await axios.post(
-          "http://127.0.0.1:8000/api/student-manager/exam-registration/my/",
+          "http://13.202.55.139:8000/api/student-manager/exam-registration/my/",
           payload,
           { headers: { Authorization: `Bearer ${token}` } }
         );

@@ -8,7 +8,7 @@ import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 
 // API endpoint for teacher login
-const API_TEACHER_LOGIN = "http://localhost:8000/api/teachers/login/";
+const API_TEACHER_LOGIN = "http://localhost:8000/api/api/teachers/login/";
 
 /**
  * TeacherLogin Component
