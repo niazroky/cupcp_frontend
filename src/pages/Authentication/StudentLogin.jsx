@@ -9,7 +9,7 @@ import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 
 // API endpoint for student login
-const API_STUDENT_LOGIN = "http://13.202.55.139:8000/api/api/students/login/";
+const API_STUDENT_LOGIN = "http://13.202.55.139/api/api/students/login/";
 
 /**
  * StudentLogin Component

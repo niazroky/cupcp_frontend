@@ -8,7 +8,7 @@ import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 import RegistrationForm from "../../components/UserRegister/RegForm";
 
-const API_TEACHER_REG = "http://localhost:8000/api/api/teachers/register/";
+const API_TEACHER_REG = "http://13.202.55.139/api/api/teachers/register/";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex =
