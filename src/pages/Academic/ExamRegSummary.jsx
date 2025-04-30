@@ -22,7 +22,7 @@ export default function ExamRegSummary() {
       return;
     }
     axios.get(
-      "http://13.202.55.139/api/api/student-manager/exam-registration-summary/",
+      "https://cupcp.com/api/student-manager/exam-registration-summary/",
       { headers: { Authorization: `Bearer ${token}` } }
     )
     .then(({ data }) => setRegistrations(data))

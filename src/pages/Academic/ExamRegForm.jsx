@@ -30,7 +30,7 @@ export default function ExamRegistrationPage() {
     }
 
     axios
-      .get("http://13.202.55.139/api/api/student-manager/exam-registration/my/", {
+      .get("https://cupcp.com/api/student-manager/exam-registration/my/", {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(({ data }) => {
@@ -96,13 +96,13 @@ export default function ExamRegistrationPage() {
       let res;
       if (registered) {
         res = await axios.put(
-          "http://13.202.55.139/api/api/student-manager/exam-registration/my/",
+          "https://cupcp.com/api/student-manager/exam-registration/my/",
           payload,
           { headers: { Authorization: `Bearer ${token}` } }
         );
       } else {
         res = await axios.post(
-          "http://13.202.55.139/api/api/student-manager/exam-registration/my/",
+          "https://cupcp.com/api/student-manager/exam-registration/my/",
           payload,
           { headers: { Authorization: `Bearer ${token}` } }
         );

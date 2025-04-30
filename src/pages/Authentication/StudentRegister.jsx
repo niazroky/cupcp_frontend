@@ -8,7 +8,7 @@ import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 import RegistrationForm from "../../components/UserRegister/RegForm";
 
-const API_STUDENT_REG = "http://13.202.55.139/api/api/students/register/";
+const API_STUDENT_REG = "https://cupcp.com/api/auth/students/register/";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const varsityIdRegex = /^\d{8}$/;
