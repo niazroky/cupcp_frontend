@@ -8,7 +8,7 @@ import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 import TeacherRegForm from "../../components/UserRegister/TeacherRegForm";
 
-const API_TEACHER_REG = "hhttps://cupcp.com/api/auth/teachers/register/";
+const API_TEACHER_REG = "https://cupcp.com/api/auth/teachers/register/";
 
 // Validation regexes
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
