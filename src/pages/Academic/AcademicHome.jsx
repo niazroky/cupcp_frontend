@@ -1,7 +1,5 @@
 // src\pages\Academic\AcademicHome.jsx
 
-// src/pages/Academic/UserRegister.jsx
-
 import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/CupcpHome/Navbar";

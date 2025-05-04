@@ -27,7 +27,10 @@ import SuccessTeacher from "./pages/Authentication/SuccessTeacher.jsx";
 import ExamRegistrationPage from "./pages/Academic/ExamRegForm.jsx";
 import ExamRegSummary from "./pages/Academic/ExamRegSummary.jsx";
 
-
+// Import forbidden page for handling unauthorized access
+import Forbidden from "./pages/Authentication/Forbidden.jsx";
+// Import NotFound page for handling 404 errors
+import NotFound from "./pages/Authentication/NotFound.jsx";
 
 // Import the PrivateRoute component for handling protected routes
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute.jsx";
@@ -49,6 +52,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/join-club" element={<JoinClubPage />} />
           <Route path="/members" element={<SeeMembers />} />
           <Route path="/academic" element={<AcademicHome />} />
+          <Route path="/forbidden" element={<Forbidden />} />
 
           {/* Authentication Routes */}
           <Route path="academic/student-register" element={<StudentRegister />} />
@@ -67,6 +71,9 @@ createRoot(document.getElementById("root")).render(
             <Route path="academic/success-teacher" element={<SuccessTeacher />} />
             <Route path="academic/exam-summary" element={<ExamRegSummary />} />
           </Route>
+
+          {/* Catch-all Route for 404 Not Found */}
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       </Router>

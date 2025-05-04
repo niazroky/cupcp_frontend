@@ -20,7 +20,7 @@ const PrivateRoute = ({ allowedRoles }) => {
 
   // If the user is not authenticated, redirect to login
   if (!userAuth?.accessToken) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/academic/student-login" replace />;
   }
 
   // If roles are restricted and the user's role isn't allowed, redirect to a 403 Forbidden page
@@ -33,3 +33,4 @@ const PrivateRoute = ({ allowedRoles }) => {
 };
 
 export default PrivateRoute;
+
