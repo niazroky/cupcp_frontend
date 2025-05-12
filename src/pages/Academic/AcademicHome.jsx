@@ -2,14 +2,11 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/CupcpHome/Navbar";
-import Footer from "../../components/CupcpHome/Footer";
 import { GraduationCap, User2 } from "lucide-react";
 
 const AcademicHome = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
-      <Navbar />
 
       <section className="flex-grow pt-24 pb-16 px-4 sm:px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto text-center">
@@ -61,8 +58,6 @@ const AcademicHome = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

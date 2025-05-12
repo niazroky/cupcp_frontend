@@ -31,6 +31,9 @@ const Navbar = () => {
 
         {/* Desktop menu - Visible only on medium (md) screens and larger */}
         <div className="hidden md:flex space-x-6">
+        <Link to="/" className="text-gray-300 hover:text-indigo-400 transition-colors">
+            Home
+          </Link>
           <Link to="/join-club" className="text-gray-300 hover:text-indigo-400 transition-colors">
             Join Club
           </Link>
@@ -45,6 +48,9 @@ const Navbar = () => {
         {/* Mobile menu - Visible when `isOpen` is true */}
         {isOpen && (
           <div className="absolute top-full left-0 right-0 bg-gray-800 md:hidden p-4 flex flex-col space-y-4">
+            <Link to="/" className="text-gray-300 hover:text-indigo-400 transition-colors" onClick={() => setIsOpen(false)}>
+              Home
+            </Link>
             <Link to="/join-club" className="text-gray-300 hover:text-indigo-400 transition-colors" onClick={() => setIsOpen(false)}>
               Join Club
             </Link>
