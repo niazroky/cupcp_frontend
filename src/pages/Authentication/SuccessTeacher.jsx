@@ -2,8 +2,6 @@
 
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/CupcpHome/Navbar";
-import Footer from "../../components/CupcpHome/Footer";
 import { AuthContext } from "../../components/ProtectedRoute/AuthContext";
 
 const SuccessTeacher = () => {
@@ -17,7 +15,6 @@ const SuccessTeacher = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
-      <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <section className="w-full bg-gray-800 py-16 px-4 sm:px-6 text-center rounded-lg">
@@ -41,8 +38,6 @@ const SuccessTeacher = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };

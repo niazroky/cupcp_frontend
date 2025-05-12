@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';                                // ← fix #1
-import Navbar from '../../components/CupcpHome/Navbar';
-import Footer from '../../components/CupcpHome/Footer';
 import useExamRegistration from '../../components/ExamRegFormHelper/useExamRegistration';
 import UserInfo from '../../components/ExamRegFormHelper/UserInfo';
 import ErrorMessage from '../../components/ExamRegFormHelper/ErrorMessage';
@@ -114,7 +112,6 @@ export default function ExamRegForm() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
-      <Navbar />
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <section className="max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
@@ -166,7 +163,6 @@ export default function ExamRegForm() {
           )}
         </section>
       </main>
-      <Footer />
     </div>
   );
 }

@@ -3,8 +3,6 @@ import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/ProtectedRoute/AuthContext";
-import Navbar from "../../components/CupcpHome/Navbar";
-import Footer from "../../components/CupcpHome/Footer";
 import { Eye, EyeOff } from 'lucide-react';
 
 const API_STUDENT_LOGIN = "https://cupcp.com/api/auth/students/login/";
@@ -55,7 +53,6 @@ const StudentLogin = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-800 text-white">
-      <Navbar />
       <section className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <div className="max-w-md mx-auto">
           <h1 className="text-3xl font-bold mb-6 text-center">Student Login</h1>
@@ -103,7 +100,6 @@ const StudentLogin = () => {
           </form>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
