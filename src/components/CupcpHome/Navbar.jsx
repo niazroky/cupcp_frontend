@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { NavLink, Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Navbar = () => {
   // State to track mobile menu visibility
@@ -31,35 +31,48 @@ const Navbar = () => {
 
         {/* Desktop menu - Visible only on medium (md) screens and larger */}
         <div className="hidden md:flex space-x-6">
-        <Link to="/" className="text-gray-300 hover:text-indigo-400 transition-colors">
+        <NavLink to="/" 
+        className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`}
+        >
             Home
-          </Link>
-          <Link to="/join-club" className="text-gray-300 hover:text-indigo-400 transition-colors">
+          </NavLink>
+          <NavLink to="/join-club" 
+          className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`}>
             Join Club
-          </Link>
-          <Link to="/members" className="text-gray-300 hover:text-indigo-400 transition-colors">
+          </NavLink>
+          <NavLink to="/members" 
+          className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`}>
             See Members
-          </Link>
-          <Link to="/academic" className="text-gray-300 hover:text-indigo-400 transition-colors">
+          </NavLink>
+          <NavLink to="/academic" 
+          className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`}>
             Academics
-          </Link>
+          </NavLink>
         </div>
 
         {/* Mobile menu - Visible when `isOpen` is true */}
         {isOpen && (
           <div className="absolute top-full left-0 right-0 bg-gray-800 md:hidden p-4 flex flex-col space-y-4">
-            <Link to="/" className="text-gray-300 hover:text-indigo-400 transition-colors" onClick={() => setIsOpen(false)}>
+            <NavLink to="/" 
+            className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`} 
+            onClick={() => setIsOpen(false)}>
               Home
-            </Link>
-            <Link to="/join-club" className="text-gray-300 hover:text-indigo-400 transition-colors" onClick={() => setIsOpen(false)}>
+            </NavLink>
+            <NavLink to="/join-club" 
+            className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`}
+            onClick={() => setIsOpen(false)}>
               Join Club
-            </Link>
-            <Link to="/members" className="text-gray-300 hover:text-indigo-400 transition-colors" onClick={() => setIsOpen(false)}>
+            </NavLink>
+            <NavLink to="/members" 
+            className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`}
+            onClick={() => setIsOpen(false)}>
               See Members
-            </Link>
-            <Link to="/academic" className="text-gray-300 hover:text-indigo-400 transition-colors" onClick={() => setIsOpen(false)}>
+            </NavLink>
+            <NavLink to="/academic" 
+            className = {({isActive}) => `hover:text-indigo-400 transition-colors ${isActive ? "text-indigo-500" : "text-gray-300"}`}
+            onClick={() => setIsOpen(false)}>
               Academic
-            </Link>
+            </NavLink>
           </div>
         )}
       </div>

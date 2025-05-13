@@ -13,7 +13,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const varsityIdRegex = /^\d{8}$/;
 const phoneRegex = /^\d{11}$/;
 const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+  /^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
 const StudentRegister = () => {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ const StudentRegister = () => {
     if (!formData.password) errs.password = "Password is required.";
     else if (!passwordRegex.test(formData.password))
       errs.password =
-        "Password too weak. Use min 8 chars, uppercase, lowercase, number & special char.";
+        "Password must be at least 6 characters and include a lowercase letter and a number.";
     if (formData.password !== formData.confirm_password)
       errs.confirm_password = "Passwords do not match.";
 
