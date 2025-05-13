@@ -12,9 +12,9 @@ const Hero = () => {
         {/* Text Section */}
         <div className="text-center space-y-2">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight pt-12 pb-4 text-gray-300">
-            CHITTAGONG UNIVERSITY
+            CHITTAGONG UNIVERSITY PROGRAMMING
             <br />
-            PHYSICS AND COMPUTER PROGRAMMING ClUB
+             & COMPUTATIONAL PHYSICS CLUB
           </h1>
           <p className="text-sm sm:text-base text-blue-400 font-medium">
             A Club Where Physics Meets Code

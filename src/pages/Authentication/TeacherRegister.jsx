@@ -1,5 +1,3 @@
-// src/pages/Authentication/TeacherRegister.jsx
-
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -7,13 +5,13 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 import TeacherRegForm from "../../components/UserRegister/TeacherRegForm";
-
-const API_TEACHER_REG = "https://cupcp.com/api/auth/teachers/register/";
+import apiRoutes from "../../api/apiRoute";
 
 // Validation regexes
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phoneRegex = /^\d{11}$/;
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+// UPDATED: Simplify to min 6 chars, at least one lowercase and one digit
+const passwordRegex = /^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
 const TeacherRegister = () => {
   const navigate = useNavigate();
@@ -37,7 +35,7 @@ const TeacherRegister = () => {
     else if (!phoneRegex.test(formData.phone_number)) errs.phone_number = "Phone must be exactly 11 digits.";
     if (!formData.password) errs.password = "Password is required.";
     else if (!passwordRegex.test(formData.password))
-      errs.password = "Password too weak. Use min 8 chars, uppercase, lowercase, number & special char.";
+      errs.password = "Password must be at least 6 characters and include a lowercase letter and a number."; // UPDATED
     if (formData.password !== formData.confirm_password)
       errs.confirm_password = "Passwords do not match.";
 
@@ -57,7 +55,7 @@ const TeacherRegister = () => {
     e.preventDefault();
     if (!validate()) return;
     try {
-      const res = await axios.post(API_TEACHER_REG, formData);
+      const res = await axios.post(apiRoutes.teacherRegister, formData);
       if (res.status === 201) {
         setMessage("🎉 Registration successful! Redirecting to login...");
         setTimeout(() => navigate("/academic/teacher-login"), 1500);

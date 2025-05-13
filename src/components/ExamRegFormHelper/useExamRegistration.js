@@ -1,5 +1,10 @@
+
+// src\components\ExamRegFormHelper\useExamRegistration.js
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import apiRoutes from '../../api/apiRoute';
+
 
 export default function useExamRegistration() {
   const [loading, setLoading] = useState(true);
@@ -14,7 +19,7 @@ export default function useExamRegistration() {
       return;
     }
     axios
-      .get('https://cupcp.com/api/student-manager/exam-registration/my/', {
+      .get(apiRoutes.myExamRegistration, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(({ data }) => {

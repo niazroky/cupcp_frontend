@@ -1,7 +1,4 @@
-
-// ---------- pages/Academic/ExamRegSummary.jsx ----------
-
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useContext } from 'react';
 import Navbar from '../../components/CupcpHome/Navbar';
 import Footer from '../../components/CupcpHome/Footer';
 import { COURSES } from '../../components/ExamRegSummaryHelper/constants';
@@ -11,8 +8,22 @@ import Overview from '../../components/ExamRegSummaryHelper/Overview';
 import Filter from '../../components/ExamRegSummaryHelper/Filter';
 import DownloadButtons from '../../components/ExamRegSummaryHelper/DownloadButtons';
 import DataTable from '../../components/ExamRegSummaryHelper/DataTable';
+// Add Logout Functionality
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../components/ProtectedRoute/AuthContext';
+
+
 
 export default function ExamRegSummary() {
+
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/academic/teacher-login", { replace: true });
+  };
+
   const { data: registrations, error } = useRegistrations();
   const [filterText, setFilterText] = useState('');
 
@@ -26,7 +37,8 @@ export default function ExamRegSummary() {
     return registrations.filter(r =>
       r.id.toString().includes(t) ||
       (r.full_name || '').toLowerCase().includes(t) ||
-      (r.varsity_id || '').toLowerCase().includes(t)
+      (r.varsity_id || '').toLowerCase().includes(t) ||
+      (r.hall_name || '').toLowerCase().includes(t)     // ← NEW: filter by hall_name
     );
   }, [filterText, registrations]);
 
@@ -46,10 +58,17 @@ export default function ExamRegSummary() {
   }, [registrations]);
 
   function handleDownloadStudentsCSV() {
-    const headers = ['ID','Full Name','Varsity ID','Session','Phone','Payment','Slip #','Status','Courses'];
+    const headers = ['ID','Full Name','Varsity ID','Hall','Session','Phone','Payment','Slip #','Status','Courses']; // ← UPDATED: added 'Hall'
     const rows = registrations.map(r => [
-      r.id, r.full_name, r.varsity_id, r.session, r.phone_number,
-      r.payment_status, r.payment_slip||'-', r.student_status,
+      r.id,
+      r.full_name,
+      r.varsity_id,
+      r.hall_name || '-',                            // ← NEW: include hall_name
+      r.session,
+      r.phone_number,
+      r.payment_status,
+      r.payment_slip||'-',
+      r.student_status,
       Array.isArray(r.courses)? r.courses.map(c=> typeof c==='object'?c.code:c).join('; '):'-'
     ]);
     downloadCSV('registered_students.csv',[headers,...rows]);
@@ -71,13 +90,38 @@ export default function ExamRegSummary() {
           <Overview totalCourses={COURSES.length} totalStudents={totalStudents} regular={regularCount} improvement={improvementCount} />
           <Filter filterText={filterText} onChange={setFilterText} />
           <DownloadButtons onDownloadStudents={handleDownloadStudentsCSV} onDownloadSummary={handleDownloadSummaryCSV} />
-          <DataTable columns={['ID','Full Name','Varsity ID','Session','Phone','Payment','Slip #','Status','Courses']} rows={filtered.map(r=>[r.id,r.full_name,r.varsity_id,r.session,r.phone_number,r.payment_status,r.payment_slip||'-',r.student_status,Array.isArray(r.courses)?r.courses.map(c=>typeof c==='object'?c.code:c).join(', '):'-'])} />
-          <DataTable columns={['Course','Regular','Improvement','Total']} rows={COURSES.map(course=>[course,summary[course].regular,summary[course].improvement,summary[course].total])} />
+          <DataTable
+            columns={['ID','Full Name','Varsity ID','Hall','Session','Phone','Payment','Slip #','Status','Courses']} // ← UPDATED: added 'Hall'
+            rows={filtered.map(r => [
+              r.id,
+              r.full_name,
+              r.varsity_id,
+              r.hall_name || '-',                    // ← NEW: include hall_name
+              r.session,
+              r.phone_number,
+              r.payment_status,
+              r.payment_slip||'-',
+              r.student_status,
+              Array.isArray(r.courses)? r.courses.map(c=>typeof c==='object'?c.code:c).join(', '):'-'
+            ])}
+          />
+          <DataTable
+            columns={['Course','Regular','Improvement','Total']}
+            rows={COURSES.map(course=>[course,summary[course].regular,summary[course].improvement,summary[course].total])}
+          />
         </section>
+        <br></br>
+        <div className="text-right mb-4">
+            <button
+              onClick={handleLogout}
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl transition"
+            >
+              Logout
+            </button>
+        </div>
+
       </main>
       <Footer />
     </div>
   );
 }
-
-

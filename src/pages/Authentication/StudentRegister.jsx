@@ -1,5 +1,3 @@
-/* src/pages/Authentication/StudentRegister.jsx */
-
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -7,15 +5,14 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 import RegistrationForm from "../../components/UserRegister/StudentRegForm";
-
-const API_STUDENT_REG = "https://cupcp.com/api/auth/students/register/";
+import apiRoutes from "../../api/apiRoute";
 
 // Validation regexes
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const varsityIdRegex = /^\d{8}$/;
 const phoneRegex = /^\d{11}$/;
-const passwordRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$/;
+// UPDATED: Simplify to min 6 chars, at least one lowercase and one digit
+const passwordRegex = /^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
 const StudentRegister = () => {
   const navigate = useNavigate();
@@ -50,7 +47,7 @@ const StudentRegister = () => {
     if (!formData.password) errs.password = "Password is required.";
     else if (!passwordRegex.test(formData.password))
       errs.password =
-        "Password too weak. Use min 8 chars, uppercase, lowercase, number & special char.";
+        "Password must be at least 6 characters and include a lowercase letter and a number."; // UPDATED
     if (formData.password !== formData.confirm_password)
       errs.confirm_password = "Passwords do not match.";
 
@@ -74,7 +71,7 @@ const StudentRegister = () => {
     e.preventDefault();
     if (!validate()) return;
     try {
-      const { status } = await axios.post(API_STUDENT_REG, formData);
+      const { status } = await axios.post(apiRoutes.studentRegister, formData);
       if (status === 201) {
         setMessage("🎉 Registration successful! Redirecting to login...");
         setTimeout(() => navigate("/academic/student-login"), 1500);
@@ -110,7 +107,7 @@ const StudentRegister = () => {
 
           <div className="mt-6">
             <p className="text-sm">
-              Already registered?{" "}
+              Already registered?{' '}
               <Link
                 to="/academic/student-login"
                 className="underline text-blue-400 hover:text-blue-300"

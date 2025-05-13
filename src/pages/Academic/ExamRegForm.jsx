@@ -1,6 +1,4 @@
-// src/pages/Academic/ExamRegForm.jsx
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';                                // ← fix #1
 import Navbar from '../../components/CupcpHome/Navbar';
 import Footer from '../../components/CupcpHome/Footer';
@@ -11,6 +9,13 @@ import PaymentSelector from '../../components/ExamRegFormHelper/PaymentSelector'
 import StudentStatusSelector from '../../components/ExamRegFormHelper/StudentStatusSelector';
 import CourseSelector, { COURSES } from '../../components/ExamRegFormHelper/CourseSelector'; // ← fix #2
 import SubmitButton from '../../components/ExamRegFormHelper/SubmitButton';
+import apiRoutes from '../../api/apiRoute';
+
+// Add Logout Functionality
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../components/ProtectedRoute/AuthContext';
+
+
 
 export default function ExamRegForm() {
   const { loading, registered, regData, userInfo, setRegistered, setRegData } = useExamRegistration();
@@ -19,9 +24,20 @@ export default function ExamRegForm() {
   const [paymentSlip, setPaymentSlip] = useState('');
   const [studentStatus, setStudentStatus] = useState('regular');
   const [selectedCourses, setSelectedCourses] = useState([]);
+  const [hallName, setHallName] = useState('');                              // ← NEW: hall state
   const [formError, setFormError] = useState('');
   const [submitMessage, setSubmitMessage] = useState('');
   const errorRef = useRef(null);
+
+
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/academic/student-login", { replace: true });
+  };
+
 
   // initialize form when data arrives
   useEffect(() => {
@@ -31,11 +47,13 @@ export default function ExamRegForm() {
         setPaymentSlip(regData.payment_slip || '');
         setStudentStatus(regData.student_status);
         setSelectedCourses(regData.courses);
+        setHallName(regData.hall_name || '');                                  // ← NEW: populate from existing
       } else {
         setSelectedCourses(studentStatus === 'regular' ? COURSES : []);
+        setHallName('');                                                      // ← NEW: reset
       }
     }
-  }, [loading, registered, regData, studentStatus]);
+  }, [loading, registered, regData]);
 
   // scroll to error
   useEffect(() => {
@@ -70,6 +88,10 @@ export default function ExamRegForm() {
         return false;
       }
     }
+    if (!hallName) {                                                        // ← NEW: validation for hall
+      setFormError('Please select your hall name.');
+      return false;
+    }
     setFormError('');
     return true;
   };
@@ -85,10 +107,11 @@ export default function ExamRegForm() {
       payment_slip: paymentStatus === 'Yes' ? paymentSlip : null,
       student_status: studentStatus,
       courses: selectedCourses,
+      hall_name: hallName,                                                   // ← NEW: include hall
     };
 
     try {
-      const url = 'https://cupcp.com/api/student-manager/exam-registration/my/';
+      const url = apiRoutes.myExamRegistration;
       const config = { headers: { Authorization: `Bearer ${token}` } };
       const res = registered
         ? await axios.put(url, payload, config)
@@ -145,11 +168,45 @@ export default function ExamRegForm() {
                   paymentSlip={paymentSlip}
                   setPaymentSlip={setPaymentSlip}
                 />
+
+                {/* NEW: Hall selection field */}
+                <div>
+                  <label htmlFor="hall_name" className="block mb-2">Select Your Hall</label>
+                  <select
+                    id="hall_name"
+                    name="hall_name"
+                    value={hallName}
+                    onChange={e => setHallName(e.target.value)}
+                    disabled={registered && !editing}
+                    className="w-full bg-gray-700 text-white p-2 rounded-xl"
+                    required
+                  >
+                    <option value="" disabled>-- Choose hall --</option>
+                    {/* List of hall options */}
+                    <option value="Alaol Hall">Alaol Hall</option>
+                    <option value="A. F. Rahman Hall">A. F. Rahman Hall</option>
+                    <option value="Shahjalal Hall">Shahjalal Hall</option>
+                    <option value="Suhrawardy Hall">Suhrawardy Hall</option>
+                    <option value="Shah Amanat Hall">Shah Amanat Hall</option>
+                    <option value="Shamsun Nahar Hall">Shamsun Nahar Hall</option>
+                    <option value="Shaheed Abdur Rab Hall">Shaheed Abdur Rab Hall</option>
+                    <option value="Pritilata Hall">Pritilata Hall</option>
+                    <option value="Deshnetri Begum Khaleda Zia Hall">Deshnetri Begum Khaleda Zia Hall</option>
+                    <option value="Masterda Surja Sen Hall">Masterda Surja Sen Hall</option>
+                    <option value="Shaheed Farhad Hossain Hall">Shaheed Farhad Hossain Hall</option>
+                    <option value="Bijoy 24 Hall">Bijoy 24 Hall</option>
+                    <option value="Nawab Faizunnesa Hall">Nawab Faizunnesa Hall</option>
+                    <option value="Atish Dipankar Hall">Atish Dipankar Hall</option>
+                    <option value="Shilpi Rashid Chowdhury Hostel">Shilpi Rashid Chowdhury Hostel</option>
+                  </select>
+                </div>
+
                 <StudentStatusSelector
                   studentStatus={studentStatus}
                   onChange={handleStudentStatusChange}
                   disabled={registered && !editing}
                 />
+
                 <div>
                   <label className="block mb-2">Selected Courses</label>
                   <CourseSelector
@@ -164,6 +221,17 @@ export default function ExamRegForm() {
               </form>
             </div>
           )}
+          
+          <br></br>
+          <div className="text-right mb-4">
+            <button
+              onClick={handleLogout}
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl transition"
+            >
+              Logout
+            </button>
+          </div>
+
         </section>
       </main>
       <Footer />

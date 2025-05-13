@@ -1,6 +1,7 @@
 // src\components\CupcpHome\Footer.jsx
 
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         {/* Contact Us Section */}
         <div className="text-center sm:text-left">
           <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">Contact Us</h3> {/* Reduced margin for a more compact look */}
-          <p className="text-sm sm:text-base text-gray-300">Email: info@cupcp.edu</p>
+          <p className="text-sm sm:text-base text-gray-300">Email: info.cupcp@gmail.com</p>
           <p className="text-sm sm:text-base text-gray-300">Location: Department of Physics</p>
           <p className="text-sm sm:text-base text-gray-300">University of Chittagong</p>
         </div>
@@ -19,9 +20,9 @@ const Footer = () => {
         <div className="text-center sm:text-left">
           <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">Quick Links</h3> {/* Reduced margin for consistency */}
           <ul className="space-y-2">
-            <li><a href="#" className="text-sm sm:text-base text-gray-300 hover:text-accent transition-colors">Events</a></li>
-            <li><a href="#" className="text-sm sm:text-base text-gray-300 hover:text-accent transition-colors">Resources</a></li>
-            <li><a href="#" className="text-sm sm:text-base text-gray-300 hover:text-accent transition-colors">Projects</a></li>
+            <li><Link to="/academic" className="text-sm sm:text-base text-gray-300 hover:text-accent transition-colors">CU Physics Academic</Link></li>
+            <li><Link to="/join-club" className="text-sm sm:text-base text-gray-300 hover:text-accent transition-colors">Join Club</Link></li>
+            <li><Link to="/members" className="text-sm sm:text-base text-gray-300 hover:text-accent transition-colors">Members</Link></li>
           </ul>
         </div>
 

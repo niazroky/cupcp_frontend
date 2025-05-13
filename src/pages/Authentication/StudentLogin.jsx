@@ -6,8 +6,8 @@ import { AuthContext } from "../../components/ProtectedRoute/AuthContext";
 import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";
 import { Eye, EyeOff } from 'lucide-react';
+import apiRoutes from "../../api/apiRoute";
 
-const API_STUDENT_LOGIN = "https://cupcp.com/api/auth/students/login/";
 
 const StudentLogin = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ const StudentLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(API_STUDENT_LOGIN, formData);
+      const response = await axios.post(apiRoutes.studentLogin, formData);
       if (response.status === 200) {
         setMessage("Login successful! Redirecting...");
         login(response.data.access, response.data.refresh, response.data.role);

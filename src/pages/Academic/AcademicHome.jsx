@@ -1,6 +1,5 @@
 // src\pages\Academic\AcademicHome.jsx
 
-import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/CupcpHome/Navbar";
 import Footer from "../../components/CupcpHome/Footer";

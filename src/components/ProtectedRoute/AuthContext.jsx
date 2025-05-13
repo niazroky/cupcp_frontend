@@ -1,8 +1,7 @@
 // src/components/ProtectedRoute/AuthContext.jsx
 import React, { createContext, useState, useEffect } from "react";
+import apiRoutes from "../../api/apiRoute";
 
-// Base URL for Django backend API
-const BACKEND_URL = "https://cupcp.com/api";
 
 // Create a context for authentication state and actions
 export const AuthContext = createContext();
@@ -41,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     // Set a timer to refresh token before it expires
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`${BACKEND_URL}/auth/api/token/refresh/`, {
+        const res = await fetch(apiRoutes.refreshToken, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ refresh: auth.refreshToken }),
@@ -75,7 +74,7 @@ export const AuthProvider = ({ children }) => {
   // Logout: call backend logout endpoint and clear auth state
   const logout = async () => {
     try {
-      await fetch(`${BACKEND_URL}/auth/logout/`, {
+      await fetch(apiRoutes.logout, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

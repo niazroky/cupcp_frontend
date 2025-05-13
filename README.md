@@ -11,18 +11,55 @@ cupcp_frontend/
 ├── dist/
 ├── node_modules/
 ├── src/
+│   ├── api/
+│   │   └── apiRoute.js
 │   ├── assets/
 │   ├── components/
 │   │   ├── CupcpHome/
-│   │   ├── ExamForm/
-│   │   ├── ExamSummary/
+│   │   │   ├── About.jsx
+│   │   │   ├── Cards.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Hero.jsx
+│   │   │   └── Navbar.jsx
+│   │   ├── ExamRegFormHelper/
+│   │   │   ├── CourseSelector.jsx
+│   │   │   ├── ErrorMessage.jsx
+│   │   │   ├── PaymentSelector.jsx
+│   │   │   ├── StudentStatusSelector.jsx
+│   │   │   ├── SubmitButton.jsx
+│   │   │   └── useExamRegistration.jsx
+│   │   ├── ExamRegSummaryHelper/
+│   │   │   ├── constant.js
+│   │   │   ├── DataTable.jsx
+│   │   │   ├── DownloadButton.jsx
+│   │   │   ├── DownloadCSV.js
+│   │   │   ├── Filter.jsx
+│   │   │   ├── Overview.jsx
+│   │   │   └── useRegistration.jsx
 │   │   ├── ProtectedRoute/
+│   │   │   ├── AuthContext.jsx
+│   │   │   └── PrivateRoute.jsx
 │   │   └── UserRegister/
+│   │       ├── StudentRegForm.jsx
+│   │       └── TeacherRegForm.jsx
 │   ├── pages/
 │   │   ├── Academic/
+│   │   │   ├── AcademicHome.jsx
+│   │   │   ├── ExamRegForm.jsx
+│   │   │   └── ExamRegSummary.jsx
 │   │   ├── Authentication/
+│   │   │   ├── Forbidden.jsx
+│   │   │   ├── NotFound.jsx
+│   │   │   ├── StudentLogin.jsx
+│   │   │   ├── StudentRegister.jsx
+│   │   │   ├── SuccessStudent.jsx
+│   │   │   ├── SuccessTeacher.jsx
+│   │   │   ├── TeacherLogin.jsx
+│   │   │   └── TeacherRegister.jsx
 │   │   ├── JoinClub/
+│   │   │   └── JoinClub.jsx
 │   │   └── SeeMembers/
+│   │       └── SeeMembers.jsx
 │   ├── App.css
 │   ├── App.jsx
 │   ├── index.css
@@ -34,8 +71,7 @@ cupcp_frontend/
 ├── package-lock.json
 ├── package.json
 ├── README.md
-├── requirements.txt.txt
-└── vite.config.js
+└── requirements.txt
 ```
 
 ---

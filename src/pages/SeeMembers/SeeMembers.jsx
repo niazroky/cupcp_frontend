@@ -4,7 +4,6 @@ import React from "react";
 
 // Import Navbar Components
 import Navbar from "../../components/CupcpHome/Navbar";
-import Hero from "../../components/CupcpHome/Hero";
 import Footer from "../../components/CupcpHome/Footer";
 
 /**
@@ -35,7 +34,6 @@ const SeeMembers = () => {
       </main>
 
       {/* Additional sections and footer */}
-      <Hero />
       <Footer />
     </div>
   );

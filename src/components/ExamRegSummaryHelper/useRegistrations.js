@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import apiRoutes from '../../api/apiRoute';
 
 export default function useRegistrations() {
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ export default function useRegistrations() {
       return;
     }
     axios.get(
-      "https://cupcp.com/api/student-manager/exam-registration-summary/",
+      apiRoutes.examRegistrationSummary,
       { headers: { Authorization: `Bearer ${token}` } }
     )
     .then(({ data }) => setData(data))
