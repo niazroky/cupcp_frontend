@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-
-import Navbar from "../../components/CupcpHome/Navbar";
-import Footer from "../../components/CupcpHome/Footer";
 import TeacherRegForm from "../../components/UserRegister/TeacherRegForm";
 import apiRoutes from "../../api/apiRoute";
 
@@ -68,7 +65,6 @@ const TeacherRegister = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-800 text-white">
-      <Navbar />
 
       <section className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
@@ -93,8 +89,6 @@ const TeacherRegister = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

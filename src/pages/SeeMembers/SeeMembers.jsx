@@ -2,9 +2,6 @@
 
 import React from "react";
 
-// Import Navbar Components
-import Navbar from "../../components/CupcpHome/Navbar";
-import Footer from "../../components/CupcpHome/Footer";
 
 /**
  * SeeMembers Component
@@ -15,8 +12,6 @@ import Footer from "../../components/CupcpHome/Footer";
 const SeeMembers = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Ensures the page takes up at least the full viewport height */}
-      <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 bg-gray-900 text-white">
         {/* Section to showcase club members (Under Development) */}
@@ -33,8 +28,6 @@ const SeeMembers = () => {
         </section>
       </main>
 
-      {/* Additional sections and footer */}
-      <Footer />
     </div>
   );
 };

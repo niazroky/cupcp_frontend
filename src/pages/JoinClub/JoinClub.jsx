@@ -2,9 +2,6 @@
 
 import React from "react";
 
-// Import Navbar Components
-import Navbar from "../../components/CupcpHome/Navbar";
-import Footer from "../../components/CupcpHome/Footer";
 
 /**
  * JoinClubPage Component
@@ -15,8 +12,6 @@ import Footer from "../../components/CupcpHome/Footer";
 const JoinClubPage = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Ensures the page occupies at least the full viewport height */}
-      <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 bg-gray-900 text-white">
         {/* Placeholder section for the Join Club feature (Under Development) */}
@@ -32,9 +27,6 @@ const JoinClubPage = () => {
           </div>
         </section>
       </main>
-
-      {/* Additional sections and footer */}
-      <Footer />
     </div>
   );
 };

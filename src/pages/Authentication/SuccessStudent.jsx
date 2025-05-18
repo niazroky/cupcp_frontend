@@ -1,8 +1,6 @@
 // src/pages/Authentication/SuccessStudent.jsx
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../../components/CupcpHome/Navbar";
-import Footer from "../../components/CupcpHome/Footer";
 import { AuthContext } from "../../components/ProtectedRoute/AuthContext";
 
 
@@ -18,7 +16,6 @@ const SuccessStudent = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
 
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6 bg-gray-900 text-white">
         <section className="w-full bg-gray-800 py-16 px-4 sm:px-6 text-center">
@@ -42,8 +39,6 @@ const SuccessStudent = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 };
