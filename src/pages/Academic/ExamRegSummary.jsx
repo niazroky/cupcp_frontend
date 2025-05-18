@@ -1,6 +1,4 @@
 import React, { useState, useMemo, useContext } from 'react';
-import Navbar from '../../components/CupcpHome/Navbar';
-import Footer from '../../components/CupcpHome/Footer';
 import { COURSES } from '../../components/ExamRegSummaryHelper/constants';
 import downloadCSV from '../../components/ExamRegSummaryHelper/downloadCSV';
 import useRegistrations from '../../components/ExamRegSummaryHelper/useRegistrations';
@@ -82,7 +80,6 @@ export default function ExamRegSummary() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
-      <Navbar />
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <section className="max-w-7xl mx-auto">
           <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center">Exam Registration Summary</h1>
@@ -121,7 +118,6 @@ export default function ExamRegSummary() {
         </div>
 
       </main>
-      <Footer />
     </div>
   );
 }
