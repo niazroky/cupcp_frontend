@@ -38,6 +38,10 @@ import PrivateRoute from "./components/ProtectedRoute/PrivateRoute.jsx";
 // Import the authentication context provider
 import { AuthProvider } from "./components/ProtectedRoute/AuthContext.jsx";
 
+
+// Import Academic Curriculum page
+import PhysicsCurriculum from "./pages/Academic/PhysicsCurriculum.jsx";
+
 // Initialize and render the root application
 createRoot(document.getElementById("root")).render(
   <StrictMode> 
@@ -71,6 +75,9 @@ createRoot(document.getElementById("root")).render(
             <Route path="academic/success-teacher" element={<SuccessTeacher />} />
             <Route path="academic/exam-summary" element={<ExamRegSummary />} />
           </Route>
+
+          {/* Academic Details Routes */}
+          <Route path="academic/physics-curriculum" element={<PhysicsCurriculum />} />
 
           {/* Catch-all Route for 404 Not Found */}
           <Route path="*" element={<NotFound />} />

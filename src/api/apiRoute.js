@@ -3,10 +3,10 @@
 
 
 // When in production, use the following line to set the base URL
-// const BASE_URL = "http://localhost:8000";
+const BASE_URL = "http://localhost:8000";
 
 // When in development, use the following line to set the base URL
-const BASE_URL = "https://cupcp.com/api";
+// const BASE_URL = "https://cupcp.com/api";
 
 
 const apiRoutes = {

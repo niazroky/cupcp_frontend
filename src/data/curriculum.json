@@ -1,0 +1,133 @@
+{
+  "curriculum": [
+    {
+      "year": "1st Year",
+      "courses": [
+        {
+          "code": "PHYS-101",
+          "title": "Introductory Physics",
+          "description": "Basic concepts in mechanics, heat and waves."
+        },
+        {
+          "code": "PHYS-102",
+          "title": "Physics Lab I",
+          "description": "Introductory lab work with mechanics and thermodynamics."
+        }
+      ]
+    },
+    {
+      "year": "2nd Year",
+      "courses": [
+        {
+          "code": "PHYS-201",
+          "title": "Electricity and Magnetism",
+          "description": "Covers electrostatics, current, magnetic fields, and circuits."
+        },
+        {
+          "code": "PHYS-202",
+          "title": "Physics Lab II",
+          "description": "Lab work with electricity and magnetism."
+        }
+      ]
+    },
+    {
+      "year": "3rd Year",
+      "courses": [
+        {
+          "code": "PHYS-301",
+          "title": "Waves and Optics",
+          "description": "Topics on wave motion, interference, diffraction, and polarization."
+        },
+        {
+          "code": "PHYS-302",
+          "title": "Thermodynamics",
+          "description": "Explores heat, temperature, laws of thermodynamics and entropy."
+        }
+      ]
+    },
+
+
+    
+    {
+      "year": "4th Year",
+      "courses": [
+        {
+          "code": "PHYS-401",
+          "title": "Relativity",
+          "groups": [
+            {
+              "name": "Group A: Special Theory of Relativity",
+              "topics": [
+                "Inertial and non-inertial frames, Michelson Morley experiment, Galilean transformation, Lorentz transformation and its consequences.",
+                "Variation of mass with velocity, mass energy equivalence, energy momentum relation, transformation of momentum and energy, relativistic Lagrangian and Hamiltonian formulation.",
+                "Minkowski space, space-like, time-like and singular intervals, space-like vectors, time-like vectors, four vectors, relativistic formulation of the equation of motion and covariant four dimensional formulations of the laws of mechanics."
+              ],
+              "lectures": 35
+            },
+            {
+              "name": "Group B: General Theory of Relativity",
+              "topics": [
+                "Quotient law, Christoffel’s three index symbols, geodesics, covariant differentiation of vectors, tensors and invariant, Ricci’s theorem, tensor form of gradient, divergence, Laplacian and curl, geodesic co-ordinates, Riemann Christoffel tensor, Ricci tensor, Bianchi identities, Einstein tensor, construction of a uniform vector field and necessary and sufficient condition for the flat spacetime.",
+                "Principle of general covariance, principle of equivalence, inertial and gravitational mass, Newton’s equation of motion as an approximation of geodesic equations, deduction and solution of Einstein’s field equations, Poisson’s equations as an approximation of Einstein’s field equations, planetary orbits, three tests of general relativity and time delay of light."
+              ],
+              "lectures": 40
+            }
+          ],
+          "recommendedBooks": [
+            "Satya Prakash - Relativistic Mechanics",
+            "Bergmann - Special Theory of Relativity",
+            "A. Einstein - Relativity: The Special & General Theory",
+            "J. N. Islam - Introduction to Mathematical Cosmology",
+            "Robert Resnick - Special Theory of Relativity",
+            "James B. Hartle - Gravitation: An Introduction to Einstein’s General Relativity",
+            "James H Smith - Introduction to Special Relativity",
+            "David J. Morin - Special Relativity: For the Enthusiastic Beginner",
+            "A. P. French - Special Relativity",
+            "Robert M. Wald - General Relativity"
+          ]
+        },
+        {
+          "code": "PHYS-402",
+          "title": "Electrodynamics",
+          "description": "1. Maxwell's equations:\nIntroduction, Maxwell’s electromagnetic field equations and their development and physical significances; Electromagnetic energy, Poynting’s theorem; Wave equations in vacuum; Plane monochromatic waves in non-conducting and conducting media and their solutions; Skin depth; Wave equation with sources.\n\n2. Application of Maxwell's equations:\nBoundary conditions; Reflection and Refraction at the boundary of two non conducting media; Normal and oblique incidence; Total internal reflection; Snell’s law; Brewster’s law; Reflection from a conducting plane.\n\n3. Guided Wave propagation:\nWave propagation between parallel conducting plates; Wave guides; Modes of propagation of TE, TM and TEM waves; Cavity resonators; Radiation from an oscillating electric dipole; Radiation resistance; Radiation from a half‑wave antenna; Radiation from a group of moving charges.\n\n4. Electromagnetic Potentials and Fields:\nScalar and vector potentials; Gauge transformation, Coulomb gauge, Lorentz gauge; Retarded potentials; Liénard–Wiechert potentials; Field due to uniformly moving point charge; Power radiated by an accelerated charge.\n\n5. Electromagnetic Dispersion:\nDispersive power of a prism; Lorentz’s theorem; Normal and anomalous dispersion; Clausius–Mossotti relation.\n\n6. Scattering of Electromagnetic Radiation:\nThomson scattering; Rayleigh scattering; Resonant scattering; Blueness of the sky and ocean.\n\n7. Concepts of Plasma:\nDebye screening length; Plasma behaviour in fields; Langevin equation; Pinch effect; Plasma oscillations.",
+          "recommendedBooks": [
+            "Milford & Christy Foundations of Electromagnetic Theory",
+            "J.D. Jackson Classical Electrodynamics",
+            "David J. Griffiths Introduction to Electrodynamics (3rd edition)",
+            "Landau & Lifshitz Classical Theory of Fields",
+            "A.M.H. Rashid Classical Electrodynamics",
+            "M. Wazed Miah Fundamentals of Electromagnetism",
+            "B. S. Tanenbaum Plasma Physics",
+            "M. R. Islam Lecture Notes on Electrodynamics (unpublished)",
+            "এ কে এম আজহারুল ইসলাম, শামসুন্নাহার ইসলাম তড়িৎ গতিবিদ্যা",
+            "Melvin Schwartz Modern Problems in Classical",
+            "Charles A. Brau Electrodynamics"
+          ]
+        },
+
+        { "code": "PHYS-403", "title": "Nuclear Physics", "description": "Covers nuclear structure, radioactive decay, nuclear models, and applications." },
+        { "code": "PHYS-404", "title": "Solid State Physics", "description": "Focus on crystal structure, band theory, and semiconductors." },
+        { "code": "PHYS-405", "title": "Statistical Mechanics", "description": "Explains ensemble theory, partition functions, and thermodynamic relations." },
+        { "code": "PHYS-406", "title": "Plasma Physics", "description": "Introduction to plasma dynamics, confinement, and applications." },
+        { "code": "PHYS-407", "title": "Particle Physics", "description": "Fundamentals of particles, interactions, and quantum field theory." },
+        { "code": "PHYS-408", "title": "Computational Physics", "description": "Numerical methods, simulation techniques, and code implementation." },
+        { "code": "PHYS-409", "title": "Experimental Physics Lab", "description": "Hands-on experiments related to advanced physics topics." }
+      ]
+    },
+    {
+      "year": "Masters",
+      "courses": [
+        {
+          "code": "PHYS-501",
+          "title": "Advanced Quantum Mechanics",
+          "description": "Advanced quantum theory and applications."
+        },
+        {
+          "code": "PHYS-502",
+          "title": "Research Methodology",
+          "description": "Scientific research techniques and academic writing."
+        }
+      ]
+    }
+  ]
+}

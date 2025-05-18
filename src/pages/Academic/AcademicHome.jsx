@@ -1,18 +1,27 @@
 // src\pages\Academic\AcademicHome.jsx
 
 import { Link } from "react-router-dom";
-import Navbar from "../../components/CupcpHome/Navbar";
+import AcademicNavbar from "../../components/Academic/AcademicNavbar";
 import Footer from "../../components/CupcpHome/Footer";
 import { GraduationCap, User2 } from "lucide-react";
 
 const AcademicHome = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
-      <Navbar />
+      <AcademicNavbar />
 
       <section className="flex-grow pt-24 pb-16 px-4 sm:px-6 bg-gray-900">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">Welcome to CUPCP Academic Portal</h1>
+          <div className="mt-16 text-center">
+          <Link
+            to="/academic/physics-curriculum"
+            className="inline-block bg-purple-700 hover:bg-purple-600 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition-all"
+          >
+            📘 Physics Curriculum
+          </Link>
+          </div>
+          <br></br>
           <p className="text-lg mb-12 text-gray-300">Select your role to register or log in to access academic resources</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center items-center">

@@ -38,7 +38,7 @@ const Navbar = () => {
             See Members
           </Link>
           <Link to="/academic" className="text-gray-300 hover:text-indigo-400 transition-colors">
-            Academics
+            Academic
           </Link>
         </div>
 
