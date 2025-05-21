@@ -17,9 +17,6 @@ import TeacherRegister from "./pages/Authentication/TeacherRegister.jsx";
 import StudentLogin from "./pages/Authentication/StudentLogin.jsx";
 import TeacherLogin from "./pages/Authentication/TeacherLogin.jsx";
 
-// Import protected authentication success pages
-import SuccessStudent from "./pages/Authentication/SuccessStudent.jsx";
-import SuccessTeacher from "./pages/Authentication/SuccessTeacher.jsx";
 
 // Import protected academic pages
 // import ExamRegForm from "./pages/Academic/ExamRegForm.jsx";
@@ -37,6 +34,8 @@ import Home from "./pages/Home/Home.jsx";
 
 // Import Academic Curriculum page
 import PhysicsCurriculum from "./pages/Academic/PhysicsCurriculum.jsx";
+import StudentDashboard from "./pages/Authentication/StudentDashboard.jsx";
+import TeacherDashboard from "./pages/Authentication/TeacherDashboard.jsx";
 
 function App() {
   const router = createBrowserRouter(
@@ -57,7 +56,7 @@ function App() {
 
         {/* Protected Routes for Students */}
         <Route element={<PrivateRoute allowedRoles={["student"]} />}>
-          <Route path="academic/success-student" element={<SuccessStudent />} />
+          <Route path="academic/student-dashboard" element={<StudentDashboard />} />
           <Route
             path="academic/exam-form-fillup"
             element={<ExamRegistrationPage />}
@@ -66,7 +65,7 @@ function App() {
 
         {/* Protected Routes for Teachers */}
         <Route element={<PrivateRoute allowedRoles={["teacher"]} />}>
-          <Route path="academic/success-teacher" element={<SuccessTeacher />} />
+          <Route path="academic/teacher-dashboard" element={<TeacherDashboard />} />
           <Route path="academic/exam-summary" element={<ExamRegSummary />} />
         </Route>
 
