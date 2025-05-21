@@ -1,40 +1,41 @@
-// src\components\CupcpHome\Hero.jsx
+// src/components/CupcpHome/Hero.jsx
 
 import React, { useState } from "react";
-import logo from "../../assets/logo.svg"; // Import the logo
+import logo from "../../assets/logo.svg";
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="bg-gray-800 text-white py-8 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-6">
-        {/* Text Section */}
-        <div className="text-center space-y-2">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight pt-12 pb-4 text-gray-300">
-            CHITTAGONG UNIVERSITY PROGRAMMING
-            <br />
-             & COMPUTATIONAL PHYSICS CLUB
-          </h1>
-          <p className="text-sm sm:text-base text-blue-400 font-medium">
-            A Club Where Physics Meets Code
-          </p>
-        </div>
-
-        {/* Logo Section */}
-        <div className="flex justify-center">
+    <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+      <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col items-center text-center">
+        {/* Logo with hover effect */}
+        <div className="mb-2">
           <img
             src={logo}
             alt="CUPCP Logo"
-            className={`w-20 h-20 sm:w-24 sm:h-24 object-cover transition-all duration-300 border-0 bg-transparent transform ${
-              isHovered ? "shadow-blue-500 shadow-2xl scale-110" : "scale-100"
+            className={`w-24 h-24 sm:w-28 sm:h-28 rounded-full transition-transform duration-300 ${
+              isHovered ? "scale-110 shadow-lg shadow-blue-500/50" : "scale-100"
             }`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           />
         </div>
+
+        {/* Main Heading */}
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gray-100 leading-tight tracking-wide">
+          Chittagong University Programming
+          <br />
+          <span className="text-blue-400">& Computational Physics Club</span>
+        </h1>
+
+        {/* Subtitle */}
+        <p className="mt-4 text-base sm:text-lg text-gray-400 max-w-xl">
+          Where Physics Meets Programming
+        </p>
+
       </div>
-    </div>
+    </section>
   );
 };
 

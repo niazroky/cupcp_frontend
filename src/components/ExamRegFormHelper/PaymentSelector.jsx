@@ -2,7 +2,7 @@ import React from 'react';
 export default function PaymentSelector({ paymentStatus, setPaymentStatus, paymentSlip, setPaymentSlip }) {
   return (
     <>
-      <label className="block mb-2">Payment Status</label>
+      <label className="block mb-2">Payment Status:</label>
       <select
         value={paymentStatus}
         onChange={e => setPaymentStatus(e.target.value)}
@@ -13,7 +13,7 @@ export default function PaymentSelector({ paymentStatus, setPaymentStatus, payme
       </select>
       {paymentStatus === 'Yes' && (
         <>
-          <label className="block mb-2 mt-4">Payment Slip Number</label>
+          <label className="block mb-2 mt-2">Payment Slip Number:</label>
           <input
             type="text"
             value={paymentSlip}

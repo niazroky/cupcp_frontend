@@ -1,12 +1,7 @@
-
-/* src/components/UserRegister/StudentRegForm.jsx */
-
-
 import React, { useState } from "react";
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from "lucide-react";
 
 const RegistrationForm = ({
-  selectedRole,
   formData,
   errors,
   message,
@@ -22,10 +17,15 @@ const RegistrationForm = ({
   return (
     <div className="bg-gray-900 p-6 rounded-lg shadow-md max-w-md mx-auto">
       <form onSubmit={handleSubmit} noValidate>
-        {/* Full Name */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">
-            Full Name <span className="text-sm text-gray-400">(will appear on your certificate)</span>
+        
+        
+        {/* Student Full Name */}
+        <div className="mb-8">
+          <label className="block mb-3 font-medium text-left">
+            Your Full Name{" "}
+            <span className="text-sm text-gray-400">
+              (Will appear on your Grade Sheet)
+            </span>
           </label>
           <input
             type="text"
@@ -33,18 +33,17 @@ const RegistrationForm = ({
             value={formData.full_name}
             onChange={handleChange}
             className="w-full p-2 rounded bg-gray-800"
-            placeholder="write your name"
           />
-          <p className="text-xs text-gray-500 mt-1">Please enter your real name.</p>
           {errors.full_name && (
             <p className="text-red-400 text-sm">{errors.full_name}</p>
           )}
         </div>
 
-        {/* Email */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">
-            Active Email <span className="text-sm text-gray-400">(important for verification)</span>
+
+        {/* Student Email */}
+        <div className="mb-8">
+          <label className="block mb-3 font-medium text-left">
+            Active Email:
           </label>
           <input
             type="email"
@@ -52,18 +51,20 @@ const RegistrationForm = ({
             value={formData.email}
             onChange={handleChange}
             className="w-full p-2 rounded bg-gray-800"
-            placeholder="you@example.com"
           />
-          <p className="text-xs text-gray-500 mt-1">Provide an email you check regularly.</p>
           {errors.email && (
             <p className="text-red-400 text-sm">{errors.email}</p>
           )}
         </div>
 
+
         {/* Phone Number */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">
-            Phone Number <span className="text-sm text-gray-400">(11 digits)</span>
+        <div className="mb-8">
+          <label className="block mb-3 font-medium text-left">
+            Phone Number{" "}
+            <span className="text-sm text-gray-400">
+              (Enter exactly 11 digits):
+            </span>
           </label>
           <input
             type="text"
@@ -72,66 +73,63 @@ const RegistrationForm = ({
             value={formData.phone_number}
             onChange={handleChange}
             className="w-full p-2 rounded bg-gray-800"
-            placeholder="e.g. 017XXXXXXXX"
           />
           {errors.phone_number && (
             <p className="text-red-400 text-sm">{errors.phone_number}</p>
           )}
         </div>
 
-        {/* Student-only fields */}
-        {selectedRole === "student" && (
-          <>
-            {/* Session */}
-            <div className="mb-4">
-              <label className="block mb-1 font-medium">Session</label>
-              <select
-                name="session"
-                value={formData.session}
-                onChange={handleChange}
-                className="w-full p-2 rounded bg-gray-800"
-              >
-                <option value="">Select session</option>
-                {Array.from({ length: 11 }).map((_, idx) => {
-                  const start = 2025 - idx;
-                  const end = String(start + 1).slice(-2);
-                  const val = `${start}-${end}`;
-                  return (
-                    <option key={val} value={val}>
-                      {val}
-                    </option>
-                  );
-                })}
-              </select>
-              {errors.session && (
-                <p className="text-red-400 text-sm">{errors.session}</p>
-              )}
-            </div>
 
-            {/* Varsity ID */}
-            <div className="mb-4">
-              <label className="block mb-1 font-medium">
-                Varsity ID <span className="text-sm text-gray-400">(8 digits)</span>
-              </label>
-              <input
-                type="text"
-                name="varsity_id"
-                maxLength={8}
-                value={formData.varsity_id}
-                onChange={handleChange}
-                className="w-full p-2 rounded bg-gray-800"
-                placeholder="8-digit ID"
-              />
-              {errors.varsity_id && (
-                <p className="text-red-400 text-sm">{errors.varsity_id}</p>
-              )}
-            </div>
-          </>
-        )}
+        {/* Session */}
+        <div className="mb-8">
+          <label className="block mb-3 font-medium text-left">Session: </label>
+          <select
+            name="session"
+            value={formData.session}
+            onChange={handleChange}
+            className="w-full p-2 rounded bg-gray-800"
+          >
+            <option value="">Select session</option>
+            {Array.from({ length: 11 }).map((_, idx) => {
+              const start = 2025 - idx;
+              const end = String(start + 1).slice(-2);
+              const val = `${start}-${end}`;
+              return (
+                <option key={val} value={val}>
+                  {val}
+                </option>
+              );
+            })}
+          </select>
+          {errors.session && (
+            <p className="text-red-400 text-sm">{errors.session}</p>
+          )}
+        </div>
+
+
+        {/* Varsity ID */}
+        <div className="mb-8">
+          <label className="block mb-3 font-medium text-left">
+            Varsity ID <span className="text-sm text-gray-400">(Enter exactly 8 digits):</span>
+          </label>
+          <input
+            type="text"
+            name="varsity_id"
+            maxLength={8}
+            value={formData.varsity_id}
+            onChange={handleChange}
+            className="w-full p-2 rounded bg-gray-800"
+            placeholder=""
+          />
+          {errors.varsity_id && (
+            <p className="text-red-400 text-sm">{errors.varsity_id}</p>
+          )}
+        </div>
+
 
         {/* Gender */}
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Gender</label>
+        <div className="mb-8">
+          <label className="block mb-3 font-medium text-left">Gender:</label>
           <select
             name="gender"
             value={formData.gender}
@@ -148,45 +146,49 @@ const RegistrationForm = ({
         </div>
 
 
-        {/* Password & Confirm */}
-        <div className="mb-4 relative">
-          <label className="block mb-1 font-medium">Password</label>
+        {/* Password */}
+        <div className="mb-8 relative">
+          <label className="block mb-1 font-medium text-left">Password:</label>
           <input
             type={showPassword ? "text" : "password"}
             name="password"
             value={formData.password}
             onChange={handleChange}
             className="w-full p-2 rounded bg-gray-800 pr-10"
-            placeholder="••••••••"
           />
+
+          {/* Toggle Password Visibility */}
           <button
             type="button"
             onClick={togglePass}
-            className="absolute top-8 right-3"
+            className="absolute top-10 right-3"
           >
-            {showPassword ? <EyeOff size={18}/> : <Eye size={18}/>}            
+            {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
           </button>
           {errors.password && (
             <p className="text-red-400 text-sm">{errors.password}</p>
           )}
         </div>
 
-        <div className="mb-6 relative">
-          <label className="block mb-1 font-medium">Confirm Password</label>
+
+        {/* Confirm Password */} 
+        <div className="mb-8 relative">
+          <label className="block mb-3 font-medium text-left">Confirm Password:</label>
           <input
             type={showConfirm ? "text" : "password"}
             name="confirm_password"
             value={formData.confirm_password}
             onChange={handleChange}
             className="w-full p-2 rounded bg-gray-800 pr-10"
-            placeholder="••••••••"
           />
+
+          {/* Toggle Confirm Password Visibility */}
           <button
             type="button"
             onClick={toggleConfirm}
-            className="absolute top-8 right-3"
+            className="absolute top-12 right-3"
           >
-            {showConfirm ? <EyeOff size={18}/> : <Eye size={18}/>}            
+            {showConfirm ? <Eye size={18} /> : <EyeOff size={18} />}
           </button>
           {errors.confirm_password && (
             <p className="text-red-400 text-sm">{errors.confirm_password}</p>

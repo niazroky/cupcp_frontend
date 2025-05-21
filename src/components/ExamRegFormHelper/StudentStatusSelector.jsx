@@ -2,7 +2,7 @@ import React from 'react';
 export default function StudentStatusSelector({ studentStatus, onChange, disabled }) {
   return (
     <>
-      <label className="block mb-2">Student Status</label>
+      <label className="block mb-2">Student Status:</label>
       <select
         value={studentStatus}
         onChange={onChange}

@@ -14,20 +14,22 @@ cupcp_frontend/
 │   ├── api/
 │   │   └── apiRoute.js
 │   ├── assets/
+        ├── logo.svg
 │   ├── components/
+        ├──Common/
+            ├── Footer.jsx
+            ├── Navbar.jsx
 │   │   ├── CupcpHome/
 │   │   │   ├── About.jsx
 │   │   │   ├── Cards.jsx
-│   │   │   ├── Footer.jsx
 │   │   │   ├── Hero.jsx
-│   │   │   └── Navbar.jsx
 │   │   ├── ExamRegFormHelper/
 │   │   │   ├── CourseSelector.jsx
 │   │   │   ├── ErrorMessage.jsx
 │   │   │   ├── PaymentSelector.jsx
 │   │   │   ├── StudentStatusSelector.jsx
 │   │   │   ├── SubmitButton.jsx
-│   │   │   └── useExamRegistration.jsx
+│   │   │   └── useExamRegistration.js
 │   │   ├── ExamRegSummaryHelper/
 │   │   │   ├── constant.js
 │   │   │   ├── DataTable.jsx
