@@ -10,19 +10,28 @@ This is the **frontend** of the CUPCP Exam Registration system, built using **Re
 cupcp_frontend/
 ├── dist/
 ├── node_modules/
+├── public/
+│   └── index.html
 ├── src/
 │   ├── api/
 │   │   └── apiRoute.js
 │   ├── assets/
-        ├── logo.svg
+│   │   └── logo.svg
 │   ├── components/
-        ├──Common/
-            ├── Footer.jsx
-            ├── Navbar.jsx
+│   │   ├── Common/
+│   │   │   ├── AcademicFooter.jsx
+│   │   │   ├── AcademicNavbar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── Navbar.jsx
+│   │   ├── CourseCurriculum/
+│   │   │   ├── CourseAccordion.jsx
+│   │   │   ├── RecommendedBooks.jsx
+│   │   │   ├── SubsectionList.jsx
+│   │   │   └── YearSelector.jsx
 │   │   ├── CupcpHome/
 │   │   │   ├── About.jsx
 │   │   │   ├── Cards.jsx
-│   │   │   ├── Hero.jsx
+│   │   │   └── Hero.jsx
 │   │   ├── ExamRegFormHelper/
 │   │   │   ├── CourseSelector.jsx
 │   │   │   ├── ErrorMessage.jsx
@@ -44,11 +53,18 @@ cupcp_frontend/
 │   │   └── UserRegister/
 │   │       ├── StudentRegForm.jsx
 │   │       └── TeacherRegForm.jsx
+│   ├── data/
+│   │   └── curriculum.json
+│   ├── layout/
+│   │   └── RootLayout.jsx
 │   ├── pages/
+│   │   ├── Home/
+│   │   │   └── Home.jsx
 │   │   ├── Academic/
 │   │   │   ├── AcademicHome.jsx
 │   │   │   ├── ExamRegForm.jsx
-│   │   │   └── ExamRegSummary.jsx
+│   │   │   ├── ExamRegSummary.jsx
+│   │   │   └── PhysicsCurriculum.jsx
 │   │   ├── Authentication/
 │   │   │   ├── Forbidden.jsx
 │   │   │   ├── NotFound.jsx
@@ -69,9 +85,8 @@ cupcp_frontend/
 ├── .gitignore
 ├── db.sqlite3
 ├── eslint.config.js
-├── index.html
-├── package-lock.json
 ├── package.json
+├── package-lock.json
 ├── README.md
 └── requirements.txt
 ```
@@ -118,7 +133,7 @@ http://localhost:5173
 - React
 - Vite
 - React Router DOM
-- Tailwind CSS (if used)
+- Tailwind CSS
 - Context API for state management
 - JWT for authentication with backend
 
