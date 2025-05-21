@@ -60,7 +60,7 @@ const AcademicHome = () => {
               </Link>
               <Link
                 to="/academic/student-login"
-                className="max-w-xs w-full sm:w-auto text-center text-green-200 px-6 py-2 hover:text-white underline text-sm"
+                className="max-w-xs w-full sm:w-auto text-center text-blue-200 px-6 py-2 hover:text-white underline text-sm"
               >
                 Already Registered? Login
               </Link>
