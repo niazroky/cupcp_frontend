@@ -68,9 +68,12 @@ const TeacherRegister = () => {
 
       <section className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-3xl sm:text-4xl font-bold mb-6">Teacher Registration</h1>
-          <p className="text-lg sm:text-xl mb-10">Register with your institutional email and phone number</p>
-
+          <h1 className="text-3xl sm:text-4xl font-bold mb-8">Teacher Registration</h1>
+          <p className="text-lg sm:text-xxl mb-3 text-blue-300 font-semibold">
+            Please register as Teacher to proceed
+          
+          </p>
+          {/* Registration form component */}
           <TeacherRegForm
             formData={formData}
             errors={errors}
@@ -79,6 +82,7 @@ const TeacherRegister = () => {
             handleSubmit={handleSubmit}
           />
 
+          {/* Login link */}
           <div className="mt-6">
             <p className="text-sm">
               Already registered?{' '}

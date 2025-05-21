@@ -1,14 +1,20 @@
 // src/pages/Authentication/TeacherLogin.jsx
 
-import React, { useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/ProtectedRoute/AuthContext";
 import { Eye, EyeOff } from "lucide-react";
 import apiRoutes from "../../api/apiRoute";
 
 
 const TeacherLogin = () => {
+
+  // Scroll to top on mount
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
 
@@ -56,38 +62,45 @@ const TeacherLogin = () => {
     <div className="min-h-screen flex flex-col bg-gray-800 text-white">
       <section className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <div className="max-w-md mx-auto">
-          <h1 className="text-3xl font-bold mb-6 text-center">Teacher Login</h1>
+          <h1 className="text-3xl font-bold mb-8 text-center">Teacher Login</h1>
           <form onSubmit={handleSubmit} noValidate>
+
+
             {/* Email */}
-            <div className="mb-4">
-              <label className="block mb-1 font-medium">Email</label>
+            <div className="mb-8">
+              <label className="block mb-3 font-medium">
+                Email:
+              </label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full p-2 rounded bg-gray-700"
-                placeholder="you@institution.edu"
+                placeholder=""
               />
             </div>
 
+
             {/* Password */}
-            <div className="mb-6 relative">
-              <label className="block mb-1 font-medium">Password</label>
+            <div className="mb-8 relative">
+              <label className="block mb-3 font-medium">
+                Password:
+              </label>
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
                 className="w-full p-2 rounded bg-gray-700 pr-10"
-                placeholder="••••••••"
+                placeholder=""
               />
               <button
                 type="button"
                 onClick={togglePassword}
-                className="absolute top-8 right-3"
+                className="absolute top-12 right-3"
               >
-                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                {showPassword ? <Eye size={18} /> : <EyeOff size={18} />}
               </button>
             </div>
 
@@ -102,6 +115,20 @@ const TeacherLogin = () => {
             >
               Login
             </button>
+
+            {/* Registration link */}
+            <div className="mt-6">
+              <p className="text-sm text-center">
+                Not registered?{' '}
+                <Link
+                  to="/academic/teacher-register"
+                  className="underline text-blue-400 hover:text-blue-300"
+                >
+                  Register here
+                </Link>
+              </p>
+            </div>
+
           </form>
         </div>
       </section>

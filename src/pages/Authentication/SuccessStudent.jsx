@@ -23,13 +23,28 @@ const SuccessStudent = () => {
           <p className="text-lg sm:text-xl mb-8">
             You’ve successfully logged in as a Student.
           </p>
+
+          {/* Alert message */}
+          <div className="text-red-500 text-sm sm:text-base px-4 py-3 mb-6 text-center leading-relaxed max-w-2xl mx-auto whitespace-pre-wrap">
+            Kindly refrain from registering if you are{`\n`}
+            not appearing for the 1stYear examination.{`\n`}
+            Registration for all other academic years.{`\n`}
+            will commence shortly. We appreciate your{`\n`}
+            patience and your kind understanding.
+          </div>
+
+
+          {/* Exam Reg Form and Logout Link */}
           <div className="space-x-4">
+            {/* Link to exam form fillup page */}
             <Link
               to="/academic/exam-form-fillup"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition"
             >
-              Go to Exam Registration
+              1st Year Exam Registration
             </Link>
+
+            {/* Logout button */}
             <button
               onClick={handleLogout}
               className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition"
@@ -37,6 +52,7 @@ const SuccessStudent = () => {
               Logout
             </button>
           </div>
+
         </section>
       </main>
     </div>

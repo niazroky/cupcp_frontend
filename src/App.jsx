@@ -1,7 +1,11 @@
 // Importing necessary React components for the app
-import React from "react"; // Import React library to use JSX
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom"; // Importing necessary components from react-router-dom for routing
-import RootLayout from "./layout/RootLayout.jsx"
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom"; // Importing necessary components from react-router-dom for routing
+import RootLayout from "./layout/RootLayout.jsx";
 
 import JoinClubPage from "./pages/JoinClub/JoinClub.jsx";
 import SeeMembers from "./pages/SeeMembers/SeeMembers.jsx";
@@ -31,41 +35,52 @@ import NotFound from "./pages/Authentication/NotFound.jsx";
 import PrivateRoute from "./components/ProtectedRoute/PrivateRoute.jsx";
 import Home from "./pages/Home/Home.jsx";
 
+// Import Academic Curriculum page
+import PhysicsCurriculum from "./pages/Academic/PhysicsCurriculum.jsx";
+
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element= {<RootLayout />}>
+      <Route path="/" element={<RootLayout />}>
+        {/* Public Routes */}
+        <Route index element={<Home />} />
+        <Route path="/join-club" element={<JoinClubPage />} />
+        <Route path="/members" element={<SeeMembers />} />
+        <Route path="/academic" element={<AcademicHome />} />
+        <Route path="/forbidden" element={<Forbidden />} />
 
-          {/* Public Routes */}
-          <Route index element={<Home />} />
-          <Route path="/join-club" element={<JoinClubPage />} />
-          <Route path="/members" element={<SeeMembers />} />
-          <Route path="/academic" element={<AcademicHome />} />
-          <Route path="/forbidden" element={<Forbidden />} />
+        {/* Authentication Routes */}
+        <Route path="academic/student-register" element={<StudentRegister />} />
+        <Route path="academic/teacher-register" element={<TeacherRegister />} />
+        <Route path="academic/student-login" element={<StudentLogin />} />
+        <Route path="academic/teacher-login" element={<TeacherLogin />} />
 
-          {/* Authentication Routes */}
-          <Route path="academic/student-register" element={<StudentRegister />} />
-          <Route path="academic/teacher-register" element={<TeacherRegister />} />
-          <Route path="academic/student-login" element={<StudentLogin />} />
-          <Route path="academic/teacher-login" element={<TeacherLogin />} />
+        {/* Protected Routes for Students */}
+        <Route element={<PrivateRoute allowedRoles={["student"]} />}>
+          <Route path="academic/success-student" element={<SuccessStudent />} />
+          <Route
+            path="academic/exam-form-fillup"
+            element={<ExamRegistrationPage />}
+          />
+        </Route>
 
-          {/* Protected Routes for Students */}
-          <Route element={<PrivateRoute allowedRoles={["student"]} />}>
-            <Route path="academic/success-student" element={<SuccessStudent />} />
-            <Route path="academic/exam-form-fillup" element={<ExamRegistrationPage />} />
-          </Route>
+        {/* Protected Routes for Teachers */}
+        <Route element={<PrivateRoute allowedRoles={["teacher"]} />}>
+          <Route path="academic/success-teacher" element={<SuccessTeacher />} />
+          <Route path="academic/exam-summary" element={<ExamRegSummary />} />
+        </Route>
 
-          {/* Protected Routes for Teachers */}
-          <Route element={<PrivateRoute allowedRoles={["teacher"]} />}>
-            <Route path="academic/success-teacher" element={<SuccessTeacher />} />
-            <Route path="academic/exam-summary" element={<ExamRegSummary />} />
-          </Route>
+        {/* Academic Details Routes */}
+        <Route
+          path="academic/physics-curriculum"
+          element={<PhysicsCurriculum />}
+        />
 
-          {/* Catch-all Route for 404 Not Found */}
-          <Route path="*" element={<NotFound />} />
+        {/* Catch-all Route for 404 Not Found */}
+        <Route path="*" element={<NotFound />} />
       </Route>
     )
-  )
+  );
   return (
     <div>
       <RouterProvider router={router} />

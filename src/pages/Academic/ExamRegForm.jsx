@@ -14,7 +14,6 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../components/ProtectedRoute/AuthContext';
 
 
-
 export default function ExamRegForm() {
   const { loading, registered, regData, userInfo, setRegistered, setRegData } = useExamRegistration();
   const [editing, setEditing] = useState(false);
@@ -94,6 +93,7 @@ export default function ExamRegForm() {
     return true;
   };
 
+  // handle form submission
   const handleSubmit = async e => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -168,7 +168,9 @@ export default function ExamRegForm() {
 
                 {/* NEW: Hall selection field */}
                 <div>
-                  <label htmlFor="hall_name" className="block mb-2">Select Your Hall</label>
+                  <label htmlFor="hall_name" className="block mb-2">
+                    Select Your Hall:
+                  </label>
                   <select
                     id="hall_name"
                     name="hall_name"
@@ -205,7 +207,7 @@ export default function ExamRegForm() {
                 />
 
                 <div>
-                  <label className="block mb-2">Selected Courses</label>
+                  <label className="block mb-2">Selected Courses: </label>
                   <CourseSelector
                     studentStatus={studentStatus}
                     selectedCourses={selectedCourses}

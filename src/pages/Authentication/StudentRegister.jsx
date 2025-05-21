@@ -87,10 +87,11 @@ const StudentRegister = () => {
           <h1 className="text-3xl sm:text-4xl font-bold mb-6">
             Welcome, Student! 🎓
           </h1>
-          <p className="text-lg sm:text-xl mb-10">
-            Please fill out your details below to register for academic
-            services.
+          <br></br>
+          <p className="text-lg sm:text-xxl mb-3 text-blue-300 font-semibold">
+            Please register first for your Exam Registration
           </p>
+
 
           <RegistrationForm
             selectedRole="student"

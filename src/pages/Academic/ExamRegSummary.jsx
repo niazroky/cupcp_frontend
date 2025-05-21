@@ -87,6 +87,12 @@ export default function ExamRegSummary() {
           <Overview totalCourses={COURSES.length} totalStudents={totalStudents} regular={regularCount} improvement={improvementCount} />
           <Filter filterText={filterText} onChange={setFilterText} />
           <DownloadButtons onDownloadStudents={handleDownloadStudentsCSV} onDownloadSummary={handleDownloadSummaryCSV} />
+          
+          <DataTable
+            columns={['Course','Regular','Improvement','Total']}
+            rows={COURSES.map(course=>[course,summary[course].regular,summary[course].improvement,summary[course].total])}
+          />
+
           <DataTable
             columns={['ID','Full Name','Varsity ID','Hall','Session','Phone','Payment','Slip #','Status','Courses']} // ← UPDATED: added 'Hall'
             rows={filtered.map(r => [
@@ -102,10 +108,7 @@ export default function ExamRegSummary() {
               Array.isArray(r.courses)? r.courses.map(c=>typeof c==='object'?c.code:c).join(', '):'-'
             ])}
           />
-          <DataTable
-            columns={['Course','Regular','Improvement','Total']}
-            rows={COURSES.map(course=>[course,summary[course].regular,summary[course].improvement,summary[course].total])}
-          />
+          
         </section>
         <br></br>
         <div className="text-right mb-4">
