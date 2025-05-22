@@ -80,10 +80,10 @@ const TeacherDashboard = () => {
       <main className="flex-grow pt-24 pb-16 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-between items-center mb-8">
-            <h1 className="text-3xl sm:text-4xl font-bold">Teacher Dashboard</h1>
+            <h1 className="text-2xl md:text-3xl font-bold">Teacher Dashboard</h1>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition"
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 px-2 py-1 md:px-4 md:py-2 rounded-lg transition"
             >
               <LogOut className="w-5 h-5" />
               Logout
