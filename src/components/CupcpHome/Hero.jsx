@@ -26,7 +26,7 @@ const Hero = () => {
         <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-gray-100 leading-tight tracking-wide">
           Chittagong University Programming
           <br />
-          <span className="text-blue-400">& Computational Physics Club</span>
+          <span className="text-blue-400">and Computational Physics Club</span>
         </h1>
 
         {/* Subtitle */}
