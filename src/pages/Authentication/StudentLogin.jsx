@@ -41,7 +41,7 @@ const StudentLogin = () => {
       if (response.status === 200) {
         setMessage("Login successful! Redirecting...");
         login(response.data.access, response.data.refresh, response.data.role);
-        setTimeout(() => navigate("/academic/success-student"), 1200);
+        setTimeout(() => navigate("/academic/student-dashboard"), 1200);
       }
     } catch (err) {
       console.error("Login error:", err);

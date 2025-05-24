@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 
-import AcademicNavbar from "../../components/Common/AcademicNavbar";
 import YearSelector from "../../components/CourseCurriculum/YearSelector";
 import CourseAccordion from "../../components/CourseCurriculum/CourseAccordion";
 
@@ -20,8 +19,7 @@ export default function PhysicsCurriculum() {
   const courses = selectedYearData ? selectedYearData.courses : [];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex flex-col">
-      <AcademicNavbar />
+    <div className="min-h-screen pt-16 md:pt-20 bg-gray-900 text-white flex flex-col">
 
       <main className="flex-grow px-4 py-8 max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-center">Physics Curriculum</h1>
