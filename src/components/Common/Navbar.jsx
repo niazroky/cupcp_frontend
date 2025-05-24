@@ -5,6 +5,8 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../components/ProtectedRoute/AuthContext";
+import logo from "../../assets/logo.svg"; // Adjust the path as necessary
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +21,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo and Brand */}
         <NavLink to="/" className="flex items-center space-x-2">
-          <img src="/src/assets/logo.svg" alt="CUPCP Logo" className="h-8 w-8" />
+          <img src={logo} alt="CUPCP Logo" className="h-8 w-8" />
           <span className="text-2xl font-bold text-blue-500 drop-shadow-lg">CUPCP</span>
         </NavLink>
 
