@@ -110,16 +110,6 @@ export default function ExamRegSummary() {
           />
           
         </section>
-        <br></br>
-        <div className="text-right mb-4">
-            <button
-              onClick={handleLogout}
-              className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-xl transition"
-            >
-              Logout
-            </button>
-        </div>
-
       </main>
     </div>
   );

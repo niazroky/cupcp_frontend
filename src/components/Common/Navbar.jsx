@@ -11,7 +11,7 @@ const Navbar = () => {
   const { auth } = useContext(AuthContext);
 
   const getDashboardNavLink = () => {
-    return auth.role === "student" ? "/academic/student-dashboard" : "/academic/teacher-dashboard";
+    return auth.role === "student" ? "student-dashboard" : "teacher-dashboard";
   };
 
   return (
