@@ -44,7 +44,7 @@ const TeacherLogin = () => {
       if (response.status === 200) {
         setMessage("Login successful! Redirecting...");
         login(response.data.access, response.data.refresh, response.data.role);
-        setTimeout(() => navigate("/academic/teacher-dashboard"), 1200);
+        setTimeout(() => navigate("teacher-dashboard"), 1200);
       }
     } catch (err) {
       console.error("Teacher login error:", err);

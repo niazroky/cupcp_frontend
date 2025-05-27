@@ -56,7 +56,7 @@ function App() {
 
         {/* Protected Routes for Students */}
         <Route element={<PrivateRoute allowedRoles={["student"]} />}>
-          <Route path="academic/student-dashboard" element={<StudentDashboard />} />
+          <Route path="student-dashboard" element={<StudentDashboard />} />
           <Route
             path="academic/exam-form-fillup"
             element={<ExamRegistrationPage />}
@@ -65,7 +65,7 @@ function App() {
 
         {/* Protected Routes for Teachers */}
         <Route element={<PrivateRoute allowedRoles={["teacher"]} />}>
-          <Route path="academic/teacher-dashboard" element={<TeacherDashboard />} />
+          <Route path="teacher-dashboard" element={<TeacherDashboard />} />
           <Route path="academic/exam-summary" element={<ExamRegSummary />} />
         </Route>
 
