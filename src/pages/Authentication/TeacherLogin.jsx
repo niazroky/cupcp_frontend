@@ -121,7 +121,7 @@ const TeacherLogin = () => {
               <p className="text-sm text-center">
                 Not registered?{' '}
                 <Link
-                  to="/academic/teacher-register"
+                  to="teacher-register"
                   className="underline text-blue-400 hover:text-blue-300"
                 >
                   Register here
