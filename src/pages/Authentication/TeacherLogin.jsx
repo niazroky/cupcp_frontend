@@ -44,7 +44,7 @@ const TeacherLogin = () => {
       if (response.status === 200) {
         setMessage("Login successful! Redirecting...");
         login(response.data.access, response.data.refresh, response.data.role);
-        setTimeout(() => navigate("teacher-dashboard"), 1200);
+        setTimeout(() => navigate("/teacher-dashboard"), 1200);
       }
     } catch (err) {
       console.error("Teacher login error:", err);
@@ -121,7 +121,7 @@ const TeacherLogin = () => {
               <p className="text-sm text-center">
                 Not registered?{' '}
                 <Link
-                  to="teacher-register"
+                  to="/academic/teacher-register"
                   className="underline text-blue-400 hover:text-blue-300"
                 >
                   Register here
