@@ -159,7 +159,7 @@ Follow the steps below to run this frontend locally:
 ### 🔧 Prerequisites
 
 - Node.js & npm installed
-- Backend running locally (see [`cupcp_backend`](https://github.com/your-org/cupcp_backend) for setup)
+- Backend running locally (see [**cupcp_backend**](https://github.com/niazroky/cupcp_backend) for setup)
 
 ---
 
