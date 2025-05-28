@@ -3,9 +3,8 @@
 This is the **frontend** of the **CUPCP** full stack application, developed using **React** and **Vite** for a modern, high-performance user experience. It connects to a **Django REST API backend** and supports user authentication, student exam registration, and teacher summaries.
 
 🔗 **Live App:** [https://cupcp.com](https://cupcp.com)  
-🛠️ **Backend Repository:** [`cupcp_backend`](https://github.com/your-org/cupcp_backend)
+🛠️ **Backend Repository:** [**cupcp_backend**](https://github.com/niazroky/cupcp_backend)
 
----
 
 ## ✨ Highlights
 
@@ -197,4 +196,5 @@ You should now see the **CUPCP Exam Registration frontend** live in your browser
 
 ---
 
-Thank you for visiting and exploring this project!
+Thanks for checking out this project!
+Feel free to reach out via email at niazroky75@gmail.com if you'd like to connect or collaborate.
