@@ -70,7 +70,8 @@ cupcp_frontend/
 ├── dist/
 ├── node_modules/
 ├── public/
-│   └── index.html
+│   |── index.html
+    |── logo.svg
 ├── src/
 │   ├── api/
 │   │   └── apiRoute.js

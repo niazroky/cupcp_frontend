@@ -1,6 +1,6 @@
 // src\components\CupcpHome\Navbar.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
@@ -11,13 +11,33 @@ import logo from "../../assets/logo.svg"; // Adjust the path as necessary
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { auth } = useContext(AuthContext);
+  const navRef = useRef(null);
 
   const getDashboardNavLink = () => {
     return auth.role === "student" ? "student-dashboard" : "teacher-dashboard";
   };
 
+  useEffect(() => {
+    // Function to handle clicks outside the navbar
+    const handleClickOutside = (event) => {
+      if (isOpen && navRef.current && !navRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    // Add event listener when menu is open
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    // Cleanup function to remove event listener
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]); // Re-run effect when isOpen changes
+
   return (
-    <nav className="bg-gray-900 py-4 px-6 fixed w-full top-0 z-50">
+    <nav className="bg-gray-900 py-4 px-6 fixed w-full top-0 z-50" ref={navRef}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo and Brand */}
         <NavLink to="/" className="flex items-center space-x-2">
