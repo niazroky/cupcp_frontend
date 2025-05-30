@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment Variable
+.env*
+
+# Ignore SSH keys
+cikey
+cikey.pub
+*.pem
+
