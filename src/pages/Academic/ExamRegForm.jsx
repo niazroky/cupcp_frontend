@@ -9,10 +9,6 @@ import CourseSelector, { COURSES } from '../../components/ExamRegFormHelper/Cour
 import SubmitButton from '../../components/ExamRegFormHelper/SubmitButton';
 import apiRoutes from '../../api/apiRoute';
 
-// Add Logout Functionality
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../components/ProtectedRoute/AuthContext';
-
 
 export default function ExamRegForm() {
   const { loading, registered, regData, userInfo, setRegistered, setRegData } = useExamRegistration();
@@ -26,14 +22,6 @@ export default function ExamRegForm() {
   const [submitMessage, setSubmitMessage] = useState('');
   const errorRef = useRef(null);
 
-
-  const { logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/academic/student-login", { replace: true });
-  };
 
 
   // initialize form when data arrives

@@ -6,21 +6,11 @@ import Overview from '../../components/ExamRegSummaryHelper/Overview';
 import Filter from '../../components/ExamRegSummaryHelper/Filter';
 import DownloadButtons from '../../components/ExamRegSummaryHelper/DownloadButtons';
 import DataTable from '../../components/ExamRegSummaryHelper/DataTable';
-// Add Logout Functionality
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../components/ProtectedRoute/AuthContext';
 
 
 
 export default function ExamRegSummary() {
 
-  const { logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/academic/teacher-login", { replace: true });
-  };
 
   const { data: registrations, error } = useRegistrations();
   const [filterText, setFilterText] = useState('');
